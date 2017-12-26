@@ -31,15 +31,10 @@
         </div>
         <div class="post">
             <span></span>
-            <h1 class="post-title">添加关系时，请确保关系文件为UTF-8编码。</h1>
+            <h1 class="post-title">在此添加关系文本:</h1>
             <br />
-            <a class="file">选择包含要导入关系的文本文件
-                <input type="file" name="" id="txtfile" onchange="readText()" >
-            </a>
-            <br />
-            <div class="post">
-                <pre id="text"></pre>
-            </div>
+            <textarea id="rels" class="comments" rows="10" cols="10"> </textarea>
+            </textarea>
             <button class="blue" onclick="AddRels();">批量向工作目录下所有prt添加关系</button>
             <span></span>
             <button class="blue" onclick="RemoveRels();">批量清空工作目录下所有prt的关系</button>

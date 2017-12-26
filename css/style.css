@@ -1620,3 +1620,15 @@ button.blue:active {
     box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
     background: #3F83F1;
 } */
+
+.comments {
+    width: 100%;
+    /*自动适应父布局宽度*/
+    overflow: auto;
+    word-break: break-all;
+    font-family: "Source Code Pro", Tahoma, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei Light", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /*在ie中解决断行问题(防止自动变为在一行显示，主要解决ie兼容问题，ie8中当设宽度为100%时，文本域类容超过一行时，  
+当我们双击文本内容就会自动变为一行显示，所以只能用ie的专有断行属性“word-break或word-wrap”控制其断行)*/
+}

@@ -1,5 +1,3 @@
-var rels = "";
-
 function init() {
     document.getElementById("directory").innerHTML = GetWorkDir();
 }
@@ -9,17 +7,6 @@ function GetWorkDir() {
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     return session.GetCurrentDirectory();
-}
-
-function readText() {
-    var file = document.getElementById("txtfile").files[0];
-    var reader = new FileReader();
-    reader.readAsText(file);
-    reader.onload = function(data) {
-        var text = document.getElementById("text")
-        rels = this.result;
-        text.innerHTML = this.result;
-    }
 }
 
 function getrealFilename(filename) {
@@ -64,7 +51,7 @@ function AddRels() {
         }
         var relations = pfcCreate("stringseq");
         relations = mdl.Relations;
-        var strs = rels.split("\r\n");
+        var strs = document.getElementById("rels").value.split("\n");
         for (var j = 0; j < strs.length; j++) {
             relations.Append(strs[j]);
         }
