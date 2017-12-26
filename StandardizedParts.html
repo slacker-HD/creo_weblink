@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>国家标准零件常用件库</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/highlight.css">
+    <link rel="StyleSheet" type="text/css" href="./css/dtree.css" />
+    <script type="text/javascript" src="./js/dtree.js"></script>
+</head>
+<script src="./js/pfcUtils.js">
+</script>
+
+<body>
+    <div class="body_container">
+        <div id="header">
+            <div class="site-name">
+                <h1 class="hidden">我的Creo二次开发工具</h1>
+                <a id="logo" href="index.html">我的Creo二次开发工具</a>
+                <p class="description">吾生也有涯，而知也无涯。以有涯随无涯，殆已；已而为知者，殆而已矣。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dtree">
+        <script type="text/javascript">
+            d = new dTree('d');
+            d.add(0, -1, 'My example tree');
+            d.add(1, 0, 'Node 1');
+            d.add(2, 0, 'Node 2');
+            d.add(3, 1, 'Node 1.1');
+            d.add(4, 0, 'Node 3', 'example01.html');
+            d.add(5, 3, 'Node 1.1.1');
+            d.add(6, 5, 'Node 1.1.1.1', "#");
+            d.add(7, 0, 'Node 4', 'example01.html');
+            d.add(8, 1, 'Node 1.2', 'example01.html');
+            d.add(9, 0, 'My Pictures', 'example01.html', 'Pictures I\'ve taken over the years', '', '', 'img/imgfolder.gif');
+            d.add(10, 9, 'The trip to Iceland', 'example01.html', 'Pictures of Gullfoss and Geysir');
+            d.add(11, 9, 'Mom\'s birthday', 'example01.html');
+            d.add(12, 0, 'Recycle Bin', 'example01.html', '', '', 'img/trash.gif');
+            document.write(d);
+        </script>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>批量添加、修改、删除零件参数</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/highlight.css">
+</head>
+<script src="./js/pfcUtils.js">
+</script>
+<script src="./js/PartsParams.js">
+</script>
+
+<body vlink=purple onload="init()">
+
+    <div class="body_container">
+        <div id="header">
+            <div class="site-name">
+                <h1 class="hidden">我的Creo二次开发工具</h1>
+                <a id="logo" href="index.html">我的Creo二次开发工具</a>
+                <p class="description">吾生也有涯，而知也无涯。以有涯随无涯，殆已；已而为知者，殆而已矣。</p>
+            </div>
+        </div>
+    </div>
+    <div class="body_container">
+        <div class="post">
+            <h1 class="post-title">当前工作目录为：</h1>
+            <br/>
+            <h2 class="post-title" id="directory">--</h2>
+        </div>
+
+        <div class="post">
+            <h1 class="post-title">添加参数时，在此设定参数列表(系统未做数据有效性检测)</h1>
+            <br/>
+            <br/>
+            <table id="tableParams" cellspacing="10px">
+                <span>参数名:</span>
+                <input id="paramname" type="text" />
+                <span>参数类型:</span>
+                <select id="paramtype">
+                    <option value="integer">整形</option>
+                    <option value="double">浮点型</option>
+                    <option value="bool">布尔型</option>
+                    <option value="string">字符串</option>
+                </select>
+                <span>参数值:</span>
+                <input id="paramvalue" type="text" />
+                <button class="blue" onclick="AddParamView()">加入列表</button>
+                <br />
+                <br />
+                <tr>
+                    <th>参数名</th>
+                    <th>参数类型</th>
+                    <th>参数值</th>
+                    <th colspan="3">操作</th>
+                </tr>
+            </table>
+            <br/>
+            <br/>
+            <span></span>
+            <button class="blue" onclick="AddParams();">批量添加修改工作目录下所有prt参数</button>
+            <span></span>
+            <button class="blue" onclick="DelParams();">批量清空工作目录下所有prt参数</button>
+            <span></span>
+            <button class="blue" onclick="DesignateParams()">批量将工作目录下所有prt参数打勾</button>
+        </div>
+    </div>
+</body>
+
+</html>
