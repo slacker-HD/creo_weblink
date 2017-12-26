@@ -54,9 +54,10 @@ function GetWorkDir() {
 function getrealFilename(filename) {
     var reg = /\.[^\.]+$/.exec(filename);
     if (reg != ".prt") {
-        return (filename.slice(0, filename.length - reg.toString().length));
-    } else
-        return (filename);
+        filename = filename.slice(0, filename.length - reg.toString().length)
+        var arr = filename.split('\\');
+        return arr[arr.length - 1];
+    }
 }
 
 function DesignateParams() {
@@ -79,9 +80,10 @@ function DesignateParams() {
         }
         mdl.Save();
     }
-    var dialogoptions = pfcCreate("pfcMessageDialogOptions").Create();
-    dialogoptions.DialogLabel = "提示";
-    session.UIShowMessageDialog("参数已全部打勾。", dialogoptions);
+    session.EraseUndisplayedModels();
+    // var dialogoptions = pfcCreate("pfcMessageDialogOptions").Create();
+    // dialogoptions.DialogLabel = "提示";
+    session.UIShowMessageDialog("参数已全部打勾。", null);
 }
 
 function DelParams() {
@@ -107,12 +109,13 @@ function DelParams() {
         }
         mdl.Save();
     }
-    var dialogoptions = pfcCreate("pfcMessageDialogOptions").Create();
-    dialogoptions.DialogLabel = "提示";
+    session.EraseUndisplayedModels();
+    // var dialogoptions = pfcCreate("pfcMessageDialogOptions").Create();
+    // dialogoptions.DialogLabel = "提示";
     if (hasRestrictionparam == true)
-        session.UIShowMessageDialog("操作未能全部完成。存在受限制的参数未删除。", dialogoptions);
+        session.UIShowMessageDialog("操作未能全部完成。存在受限制的参数未删除。", null);
     else
-        session.UIShowMessageDialog("操作全部完成。", dialogoptions);
+        session.UIShowMessageDialog("操作全部完成。", null);
 }
 
 
@@ -145,9 +148,10 @@ function AddParams() {
         }
         mdl.Save();
     }
-    var dialogoptions = pfcCreate("pfcMessageDialogOptions").Create();
-    dialogoptions.DialogLabel = "提示";
-    session.UIShowMessageDialog("操作全部完成。", dialogoptions);
+    session.EraseUndisplayedModels();
+    // var dialogoptions = pfcCreate("pfcMessageDialogOptions").Create();
+    // dialogoptions.DialogLabel = "提示";
+    session.UIShowMessageDialog("操作全部完成。", null);
 }
 
 

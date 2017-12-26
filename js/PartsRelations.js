@@ -22,13 +22,13 @@ function readText() {
     }
 }
 
-/// creo脑残，dirty work around here
 function getrealFilename(filename) {
     var reg = /\.[^\.]+$/.exec(filename);
     if (reg != ".prt") {
-        return (filename.slice(0, filename.length - reg.toString().length));
-    } else
-        return (filename);
+        filename = filename.slice(0, filename.length - reg.toString().length)
+        var arr = filename.split('\\');
+        return arr[arr.length - 1];
+    }
 }
 
 function RemoveRels() {
@@ -45,9 +45,10 @@ function RemoveRels() {
         mdl.DeleteRelations();
         mdl.Save();
     }
-    var dialogoptions = pfcCreate("pfcMessageDialogOptions").Create();
-    dialogoptions.DialogLabel = "提示";
-    session.UIShowMessageDialog("操作全部完成。", dialogoptions);
+    session.EraseUndisplayedModels();
+    // var dialogoptions = pfcCreate("pfcMessageDialogOptions").Create();
+    // dialogoptions.DialogLabel = "提示";
+    session.UIShowMessageDialog("操作全部完成。", null);
 }
 
 function AddRels() {
@@ -70,7 +71,8 @@ function AddRels() {
         mdl.Relations = relations;
         mdl.Save();
     }
-    var dialogoptions = pfcCreate("pfcMessageDialogOptions").Create();
-    dialogoptions.DialogLabel = "提示";
-    session.UIShowMessageDialog("操作全部完成。", dialogoptions);
+    session.EraseUndisplayedModels();
+    // var dialogoptions = pfcCreate("pfcMessageDialogOptions").Create();
+    // dialogoptions.DialogLabel = "提示";
+    session.UIShowMessageDialog("操作全部完成。", null);
 }
