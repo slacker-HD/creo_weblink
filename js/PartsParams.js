@@ -17,7 +17,7 @@ function AddParamView() {
     var Cell_4 = tableRow.insertCell(4);
     Cell_4.innerHTML = "<a href='#' onclick='EditParamView(this.parentNode.parentNode)'>修改</a>";
     var Cell_5 = tableRow.insertCell(5);
-    Cell_5.innerHTML = "<a href='#' onclick='FinishEditView(this.parentNode.parentNode)'>提交</a>";
+    Cell_5.innerHTML = "<a href='#' onclick='FinishEditView(this.parentNode.parentNode)'>完成修改</a>";
 }
 
 function DelParamView(obj, val) {
