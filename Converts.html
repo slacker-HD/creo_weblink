@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>批量导出文件</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/highlight.css">
+</head>
+<script src="./js/pfcUtils.js">
+</script>
+<script src="./js/Converts.js">
+</script>
+
+<body vlink=purple onload="init();">
+
+    <div class="body_container">
+        <div id="header">
+            <div class="site-name">
+                <h1 class="hidden">我的Creo二次开发工具</h1>
+                <a id="logo" href="index.html">我的Creo二次开发工具</a>
+                <p class="description">吾生也有涯，而知也无涯。以有涯随无涯，殆已；已而为知者，殆而已矣。</p>
+            </div>
+        </div>
+    </div>
+    <div class="body_container">
+        <div class="post">
+            <h1 class="post-title">当前工作目录为：</h1>
+            <br/>
+            <h2 class="post-title" id="directory">--</h2>
+        </div>
+        <div class="post">
+            <button class="blue" onclick="ExportIgeses();" style="width:280px">批量将工作目录下所有prt导出为Iges</button>
+            <br />
+            <br />
+            <button class="blue" onclick="ExportSteps();" style="width:280px">批量将工作目录下所有prt导出为Step</button>
+            <br />
+            <br />
+            <button class="blue" onclick="ExportPdfs();" style="width:280px">批量将工作目录下所有drw导出为Pdf</button>
+            <br />
+            <br />
+            <button class="blue" onclick="ExportDwgs();" style="width:280px">批量将工作目录下所有drw导出为Dwg</button>
+            <br />
+            <br />
+            <p>受网页限制，文件转化特别是转Dwg需要大量的时间，程序在转化过程中可能存在假死状态，请耐心等待。</p>
+        </div>
+        <div id="footer">
+            <div class="footer-info">
+                <p>本工具由胡迪开发</p>
+                <p>欢迎访问我的博客：<a target="_blank" href="https://slacker-hd.github.io">https://slacker-hd.github.io</a></p>
+
+                <p> Theme by
+                    <a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
