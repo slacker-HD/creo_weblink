@@ -1,12 +1,14 @@
 function init() {
-    document.getElementById("directory").innerHTML = GetWorkDir();
+    document.getElementById("currentModel").innerHTML = GetCurrentModelName();
 }
 
-function GetWorkDir() {
+function GetCurrentModelName() {
     if (!pfcIsWindows())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
-    return session.GetCurrentDirectory();
+    if (session.CurrentModel == null)
+        return "--";
+    return session.CurrentModel.FileName;
 }
 
 function RefershCurrentWindow() {
@@ -29,6 +31,11 @@ function CreateLayers() {
     if (!pfcIsWindows())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var model = CurrentModel();
+    if (model == null)
+        return;
+    if (model.Type != pfcCreate("pfcModelType").MDL_DRAWING)
+        return;
+
     var layers = model.ListItems(pfcCreate("pfcModelItemType").ITEM_LAYER);
     for (var i = 0; i < layers.Count; i++) {
         if (layers.Item(i).GetName() == "TABLE" || layers.Item(i).GetName() == "NOTE" || layers.Item(i).GetName() == "DIMENSION" || layers.Item(i).GetName() == "SYMBOL") {
@@ -68,4 +75,6 @@ function CreateLayers() {
     }
     RefershCurrentWindow();
     model.Save();
+    pfcGetProESession().UIShowMessageDialog("操作完成。", null);
+
 }
