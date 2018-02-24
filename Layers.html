@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>为表格、符号、尺寸、注解设置层</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/highlight.css">
+</head>
+<script src="./js/pfcUtils.js">
+</script>
+<script src="./js/Layers.js">
+</script>
+
+<body vlink=purple onload="init()">
+
+    <div class="body_container">
+        <div id="header">
+            <div class="site-name">
+                <h1 class="hidden">我的Creo二次开发工具</h1>
+                <a id="logo" href="index.html">我的Creo二次开发工具</a>
+                <p class="description">吾生也有涯，而知也无涯。以有涯随无涯，殆已；已而为知者，殆而已矣。</p>
+            </div>
+        </div>
+    </div>
+    <div class="body_container">
+        <div class="post">
+            <h1 class="post-title">当前工作目录为：</h1>
+            <br/>
+            <h2 class="post-title" id="directory">--</h2>
+        </div>
+
+        <div class="post">
+            <h1 class="post-title">添加层</h1>
+            <br/>
+            <br/>
+            <button class="blue" onclick="CreateLayers();" style="width:280px">点击添加层</button>
+            <br />
+            <br />
+            <p>将在绘图中添加名为TABLE、NOTE、SYMBOL和DIMENSION四个层，每个层添加对应的元素。如绘图已存在同名层，系统将清空图层后再加入对应元素。Weblink没有表面粗糙度和形位公差的对象，所以这两种符号无法加入图层。</p>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footer-info">
+            <p>本工具由胡迪开发</p>
+            <p>欢迎访问我的博客：<a target="_blank" href="http://www.hudi.site">http://www.hudi.site</a></p>
+
+            <p> Theme by
+                <a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
