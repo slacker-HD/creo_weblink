@@ -76,7 +76,6 @@ function ExportPdfs() {
         PDFExportInstructions.Options = null;
         PDFExportInstructions.ProfilePath = null;
         PDFExportInstructions.FilePath = getrealFilename(files.Item(i)) + ".pdf";
-        alert(getrealFilename(files.Item(i)) + ".pdf")
         mdl.Display();
         mdl.Export(getrealFilename(files.Item(i)) + ".pdf", PDFExportInstructions);
         mdl.Erase();
