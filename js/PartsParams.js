@@ -54,7 +54,7 @@ function GetWorkDir() {
 function getrealFilename(filename) {
     var reg = /\.[^\.]+$/.exec(filename);
     if (reg != ".prt") {
-        filename = filename.slice(0, filename.length - reg.toString().length)
+        filename = filename.slice(0, filename.length - reg.toString().length);
         var arr = filename.split('\\');
         return arr[arr.length - 1];
     }
@@ -68,7 +68,7 @@ function DesignateParams() {
     for (var i = 0; i < files.Count; i++) {
         var mdlDescr = pfcCreate("pfcModelDescriptor").CreateFromFileName(getrealFilename(files.Item(i)));
         var mdl = session.GetModelFromDescr(mdlDescr);
-        if (mdl == void null) {
+        if (mdl == null) {
             mdl = session.RetrieveModel(mdlDescr);
         }
         var parameters = mdl.ListParams();

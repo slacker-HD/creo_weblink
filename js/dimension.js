@@ -61,12 +61,13 @@ function HorizonArrange() {
     var MouseStatus = pfcGetProESession().UIGetNextMousePick(pfcCreate("pfcMouseButton").MOUSE_BTN_LEFT);
 
     for (i = 0; i < SelectionBuffer.Contents.Count; i++) {
+        var dim2ds, j, pos;
         var dimension = SelectionBuffer.Contents.Item(i).SelItem;
         if (dimension.Type == pfcCreate("pfcModelItemType").ITEM_DIMENSION) {
-            var dim2ds = model.ListShownDimensions(CurrentModel().GetCurrentSolid(), pfcCreate("pfcModelItemType").ITEM_DIMENSION);
-            for (var j = 0; j < dim2ds.Count; j++) {
+            dim2ds = model.ListShownDimensions(CurrentModel().GetCurrentSolid(), pfcCreate("pfcModelItemType").ITEM_DIMENSION);
+            for (j = 0; j < dim2ds.Count; j++) {
                 if (dim2ds.Item(j).id == dimension.Id) {
-                    var pos = MouseStatus.Position;
+                    pos = MouseStatus.Position;
                     pos.Set(0, dim2ds.Item(j).Location.Item(0));
                     pos.Set(1, MouseStatus.Position.Item(1));
                     pos.Set(2, dim2ds.Item(j).Location.Item(2));
@@ -75,10 +76,10 @@ function HorizonArrange() {
                 }
             }
         } else if (dimension.Type == pfcCreate("pfcModelItemType").ITEM_REF_DIMENSION) {
-            var dim2ds = model.ListShownDimensions(CurrentModel().GetCurrentSolid(), pfcCreate("pfcModelItemType").ITEM_REF_DIMENSION);
-            for (var j = 0; j < dim2ds.Count; j++) {
+            dim2ds = model.ListShownDimensions(CurrentModel().GetCurrentSolid(), pfcCreate("pfcModelItemType").ITEM_REF_DIMENSION);
+            for (j = 0; j < dim2ds.Count; j++) {
                 if (dim2ds.Item(j).id == dimension.Id) {
-                    var pos = MouseStatus.Position;
+                    pos = MouseStatus.Position;
                     pos.Set(0, dim2ds.Item(j).Location.Item(0));
                     pos.Set(1, MouseStatus.Position.Item(1));
                     pos.Set(2, dim2ds.Item(j).Location.Item(2));
@@ -107,11 +108,12 @@ function VerticalArrange() {
     var MouseStatus = pfcGetProESession().UIGetNextMousePick(pfcCreate("pfcMouseButton").MOUSE_BTN_LEFT);
     for (i = 0; i < SelectionBuffer.Contents.Count; i++) {
         var dimension = SelectionBuffer.Contents.Item(i).SelItem;
+        var dim2ds, j, pos;
         if (dimension.Type == pfcCreate("pfcModelItemType").ITEM_DIMENSION) {
-            var dim2ds = model.ListShownDimensions(CurrentModel().GetCurrentSolid(), pfcCreate("pfcModelItemType").ITEM_DIMENSION);
-            for (var j = 0; j < dim2ds.Count; j++) {
+            dim2ds = model.ListShownDimensions(CurrentModel().GetCurrentSolid(), pfcCreate("pfcModelItemType").ITEM_DIMENSION);
+            for (j = 0; j < dim2ds.Count; j++) {
                 if (dim2ds.Item(j).id == dimension.Id) {
-                    var pos = MouseStatus.Position;
+                    pos = MouseStatus.Position;
                     pos.Set(0, MouseStatus.Position.Item(0));
                     pos.Set(1, dim2ds.Item(j).Location.Item(1));
                     pos.Set(2, dim2ds.Item(j).Location.Item(2));
@@ -120,10 +122,10 @@ function VerticalArrange() {
                 }
             }
         } else if (dimension.Type == pfcCreate("pfcModelItemType").ITEM_REF_DIMENSION) {
-            var dim2ds = model.ListShownDimensions(CurrentModel().GetCurrentSolid(), pfcCreate("pfcModelItemType").ITEM_REF_DIMENSION);
-            for (var j = 0; j < dim2ds.Count; j++) {
+            dim2ds = model.ListShownDimensions(CurrentModel().GetCurrentSolid(), pfcCreate("pfcModelItemType").ITEM_REF_DIMENSION);
+            for (j = 0; j < dim2ds.Count; j++) {
                 if (dim2ds.Item(j).id == dimension.Id) {
-                    var pos = MouseStatus.Position;
+                    pos = MouseStatus.Position;
                     pos.Set(0, MouseStatus.Position.Item(0));
                     pos.Set(1, dim2ds.Item(j).Location.Item(1));
                     pos.Set(2, dim2ds.Item(j).Location.Item(2));
@@ -144,11 +146,12 @@ function Dims2Csv() {
         return;
     if (model.Type != pfcCreate("pfcModelType").MDL_DRAWING)
         return;
+    var Tolerance;
     var text = "尺寸名\t显示值\t公差显示方式\t公差值\t是否显示\n";
     var dim2ds = model.ListShownDimensions(CurrentModel().GetCurrentSolid(), pfcCreate("pfcModelItemType").ITEM_DIMENSION);
     for (var j = 0; j < dim2ds.Count; j++) {
         text += dim2ds.Item(j).GetName() + "\t" + dim2ds.Item(j).DimValue + "\t";
-        var Tolerance = dim2ds.Item(j).GetTolerance();
+        Tolerance = dim2ds.Item(j).GetTolerance();
         if (Tolerance == null)
             text += "/\t/\t";
         else {
@@ -181,9 +184,9 @@ function Dims2Csv() {
 
 
     dim2ds = model.ListShownDimensions(CurrentModel().GetCurrentSolid(), pfcCreate("pfcModelItemType").ITEM_REF_DIMENSION);
-    for (var j = 0; j < dim2ds.Count; j++) {
+    for (j = 0; j < dim2ds.Count; j++) {
         text += dim2ds.Item(j).GetName() + "\t" + dim2ds.Item(j).DimValue + "\t";
-        var Tolerance = dim2ds.Item(j).GetTolerance();
+        Tolerance = dim2ds.Item(j).GetTolerance();
         if (Tolerance == null)
             text += "/\t/\t";
         else {

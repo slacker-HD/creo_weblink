@@ -298,7 +298,7 @@ body {
 }
 
 #logo {
-    font: bold 60px/1.2 "微软雅黑";
+    font: bold 30px/1.2 "微软雅黑";
     white-space: nowrap;
     color: #fff;
     text-shadow: 1px 3px 6px #113f6e
@@ -1562,9 +1562,6 @@ button:hover {
 button:active {
     box-shadow: inset 1px 1px 1px #DFDFDF;
 }
-
-
-/* Blue button as seen on translate.google.com*/
 
 button.blue {
     color: white;
