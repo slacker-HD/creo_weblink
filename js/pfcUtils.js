@@ -73,8 +73,6 @@ function pfcGetExceptionDescription(err) {
 
 function pfcGetExceptionType(err) {
     errString = pfcGetExceptionDescription(err);
-
-    // This should remove the XPCOM prefix ("XPCR_C")
     if (errString.search("XPCR_C") < 0) {
         errString = errString.replace("Exceptions::", "");
         semicolonIndex = errString.search(";");

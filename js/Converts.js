@@ -9,7 +9,6 @@ function GetWorkDir() {
     return session.GetCurrentDirectory();
 }
 
-/// creo脑残，dirty work around here
 function getrealFilename(filename) {
     var reg = /\.[^\.]+$/.exec(filename);
     if (reg != ".prt") {

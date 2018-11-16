@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>同名工程图</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/highlight.css">
+</head>
+<script src="./js/pfcUtils.js">
+</script>
+<script src="./js/EngineeringDrawing.js">
+</script>
+
+<body vlink="purple" onload="init();">
+
+    <div class="body_container">
+        <div id="header">
+            <div class="site-name">
+                <a id="logo" href="index.html">我的Creo二次开发工具</a>
+            </div>
+        </div>
+    </div>
+    <div class="body_container">
+        <div class="post">
+            <h1 class="post-title">当前打开的模型为：</h1>
+            <br/>
+            <h2 class="post-title" id="currentModel">--</h2>
+        </div>
+
+        <div class="post">
+            <button class="blue" onclick="CODrawing();" style="width:280px">打开或新建同名工程图</button>
+            <br />
+            <br />
+            <p>如果同名工程图文件存在，则直接打开，否则默认以c_drawing模板新建同名工程图。</p>
+        </div>
+        <div id="footer">
+            <div class="footer-info">
+                <p>本工具由胡迪开发</p>
+                <p>欢迎访问我的博客：<a target="_blank" href="http://www.hudi.site">http://www.hudi.site</a></p>
+
+                <p> Theme by
+                    <a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
