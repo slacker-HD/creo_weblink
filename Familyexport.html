@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>同名工程图</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/highlight.css">
+</head>
+<script src="./js/pfcUtils.js">
+</script>
+<script src="./js/Familyexport.js">
+</script>
+
+<body vlink="purple" onload="init();">
+
+    <div class="body_container">
+        <div id="header">
+            <div class="site-name">
+                <a id="logo" href="index.html">我的Creo二次开发工具</a>
+                <p class="description">本页功能必须在Creo内置窗口打开才能使用。</p>
+            </div>
+        </div>
+    </div>
+    <div class="body_container">
+        <div class="post">
+            <h1 class="post-title">当前打开的模型为：</h1>
+            <br />
+            <h2 class="post-title" id="currentModel">--</h2>
+        </div>
+        <div class="post">
+            <h1 class="post-title" id="instancenumber">--</h1>
+            <br />
+            <button class="blue" style="float:right;width:200px" onclick="FamExport();">导出</button>
+            <br />
+            <br />
+            <table id="tableParams" cellspacing="10px">
+                <thead>
+                    <tr>
+                        <th>选择</th>
+                        <th>序号</th>
+                        <th>名称</th>
+                        <th>导出状态</th>
+                    </tr>
+                </thead>
+                <tbody id="famcontents">
+                </tbody>
+            </table>
+            <br />
+            <br />
+            <p>为防止导出失败，导出前最好关闭所有打开的其它模型以及保证导出目录下不要有同名文件。</p>
+        </div>
+
+        <div id="footer">
+            <div class="footer-info">
+                <p>本工具由胡迪开发</p>
+                <p>欢迎访问我的博客：<a target="_blank" href="http://www.hudi.site">http://www.hudi.site</a></p>
+                <p> Theme by
+                    <a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
