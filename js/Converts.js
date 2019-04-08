@@ -15,6 +15,9 @@ function getrealFilename(filename) {
         filename = filename.slice(0, filename.length - reg.toString().length);
         var arr = filename.split('\\');
         return arr[arr.length - 1];
+    } else {
+        var arr = filename.split('\\');
+        return arr[arr.length - 1];
     }
 }
 
