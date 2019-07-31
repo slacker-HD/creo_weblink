@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>快速浏览</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/highlight.css">
+</head>
+<script src="./js/pfcUtils.js">
+</script>
+<script src="./js/creoView.js">
+</script>
+
+<body vlink="purple">
+    <!-- onload="init()" -->
+    <div class="body_container">
+        <div id="header">
+            <div class="site-name">
+                <a id="logo" href="index.html">Creo二次开发工具</a>
+                <p class="description">本页功能必须在Creo内置窗口打开才能使用。仅在win10 X64，Creo 2.0 M060 X64环境测试通过。</p>
+            </div>
+        </div>
+    </div>
+    <div class="body_container">
+        <div class="post">
+            <h1 class="post-title">当前工作目录为：</h1>
+            <br />
+            <h2 class="post-title" id="directory">--</h2>
+        </div>
+
+        <div class="post">
+            <h1 class="post-title">工作目录下所有文件：</h1>
+            <br />
+
+            <OBJECT ID="CMyControl" CLASSID="clsid:051C4748－1262－11D2－87C1－00A024D948FB" CODEBASE="http://www.mysite.com.cn/ocxdir/mycontrol.ocx＃version=1,0,0,1" WIDTH=400 HEIGHT=200 ALIGN=center HSPACE=0 VSPACE=0> </OBJECT>
+
+            <div>
+                <table id="record">
+                    <thead style="display: block;">
+                        <tr class="m2th">
+                            <td width="200px" class="center">姓名</td>
+                            <td width="200px" class="center">年龄</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div style="max-height: 240px;overflow-y:auto;">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                        <tr>
+                            <td width="200px" class="center">张三</td>
+                            <td width="200px" class="center">李四</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <table>
+                <thead style="table-layout: fixed;">
+                    <tr style="display: table;width: calc(100% - 0.5em);table-layout: fixed;">
+                        <th width="100px">序号</th>
+                        <th>文件名</th>
+                    </tr>
+                </thead>
+                <tbody style="display: block; overflow-y: scroll;table-layout: fixed;" id="filelist">
+                    <tr style="display: table;width: 100%;table-layout: fixed;">
+                        <td width="100px">张三</td>
+                        <td>张三</td>
+                    </tr>
+                    <tr style="display: table;width: 100%;table-layout: fixed;">
+                        <td width="100px">张三</td>
+                        <td>张三</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footer-info">
+            <p>本工具由胡迪开发</p>
+            <p>欢迎访问我的博客：<a target="_blank" href="http://www.hudi.site">http://www.hudi.site</a></p>
+
+            <p> Theme by
+                <a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
