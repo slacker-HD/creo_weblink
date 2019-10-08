@@ -15,14 +15,16 @@ function GetWorkDir() {
 
 function getrealFilename(filename, extension) {
     var reg = /\.[^\.]+$/.exec(filename);
+    var arr;
     if (reg != extension) {
         filename = filename.slice(0, filename.length - reg.toString().length);
-        var arr = filename.split('\\');
+        arr = filename.split('\\');
         return arr[arr.length - 1];
     } else {
-        var arr = filename.split('\\');
-        return arr[arr.length - 1];
+        arr = filename.split('\\');
     }
+    return arr[arr.length - 1];
+
 }
 
 

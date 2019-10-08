@@ -8,16 +8,17 @@ function initlist() {
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     var dirlist = document.getElementById("dirlist");
+    var i;
     dirlist.innerHTML = "";
     var dirval = getCookie('IMICreoCurDir');
     if (dirval !== null) {
         var dirs = dirval.split("\n");
-        for (var i = 0; i < dirs.length; i++) {
+        for (i = 0; i < dirs.length; i++) {
             if (dirs[i] === "") {
                 dirs.splice(i, 1);
             }
         }
-        for (var i = 0; i < dirs.length; i++) {
+        for (i = 0; i < dirs.length; i++) {
             var newRow = dirlist.insertRow();
             var newCell0 = newRow.insertCell();
             var newCell1 = newRow.insertCell();

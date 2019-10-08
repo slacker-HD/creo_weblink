@@ -52,14 +52,15 @@ function GetWorkDir() {
 
 function getrealFilename(filename) {
     var reg = /\.[^\.]+$/.exec(filename);
+    var arr;
     if (reg != ".prt") {
         filename = filename.slice(0, filename.length - reg.toString().length);
-        var arr = filename.split('\\');
+        arr = filename.split('\\');
         return arr[arr.length - 1];
     } else {
-        var arr = filename.split('\\');
-        return arr[arr.length - 1];
+        arr = filename.split('\\');
     }
+    return arr[arr.length - 1];
 }
 
 function DesignateParams() {
