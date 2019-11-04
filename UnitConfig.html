@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>批量设置零件单位</title>
+    <link rel="stylesheet" type="text/css" href="./weblinkcss/style.css">
+    <link rel="stylesheet" type="text/css" href="./weblinkcss/highlight.css">
+</head>
+<script src="./weblinkjs/pfcUtils.js">
+</script>
+<script src="./weblinkjs/UnitConfig.js">
+</script>
+
+<body vlink="purple" onload="init();">
+
+    <div class="body_container">
+        <div id="header">
+            <div class="site-name">
+                <a id="logo" href="weblink.html">Creo二次开发工具</a>
+                <p class="description">本页功能必须在Creo内置窗口打开才能使用。仅在win10 X64，Creo 2.0 M060 X64环境测试通过。</p>
+            </div>
+        </div>
+    </div>
+    <div class="body_container">
+        <div class="post">
+            <h1 class="post-title">当前工作目录为：</h1>
+            <br/>
+            <h2 class="post-title" id="directory">--</h2>
+        </div>
+        <div class="post">
+            <h1 class="post-title" id="instancenumber">--</h1>
+            <br />
+            <button class="blue" style="float:right;width:200px" onclick="UnitConfig();">设置单位</button>
+            <br />
+            <br />
+            <table id="tableUnits" cellspacing="10px">
+                <thead>
+                    <tr>
+                        <th>选择</th>
+                        <th>序号</th>
+                        <th>名称</th>
+                        <th>单位</th>
+                        <th>转换方式</th>
+                    </tr>
+                </thead>
+                <tbody id=".prt">
+                </tbody>
+            </table>
+            <br />
+            <br />
+            <p>批量设置工作目录下所有prt的单位为mmNs。</p>
+        </div>
+        <div id="footer">
+            <div class="footer-info">
+                <p>本工具由胡迪开发</p>
+                <p>欢迎访问我的博客：<a target="_blank" href="http://www.hudi.site">http://www.hudi.site</a></p>
+
+                <p> Theme by
+                    <a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
