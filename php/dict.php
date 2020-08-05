@@ -9,6 +9,9 @@ $sql = "select * from dict Where E like '%" . $_POST['value'] . "%' or C like '%
 
 $result = mysql_query($sql); //借SQL语句插入数据
 $i = 1;
+
+echo '<table cellspacing="10px"><thead><tr><th style="width: 8%;">序号</th><th style="width: 46%;">英文</th><th style="width: 46%;">中文</th></tr></thead><tbody>';
+
 while ($row = mysql_fetch_array($result)) {
     echo "<tr>";
     echo "<td>" . (string)$i . "</td>";
@@ -17,4 +20,6 @@ while ($row = mysql_fetch_array($result)) {
     echo "</tr>";
     $i = $i + 1;
 }
+
+echo '</tbody></table>';
 mysql_close();
