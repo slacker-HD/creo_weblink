@@ -1,225 +1,235 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Creo二次开发工具</title>
-    <link rel="stylesheet" type="text/css" href="./weblinkcss/style.css">
-    <link rel="stylesheet" type="text/css" href="./weblinkcss/highlight.css">
-</head>
-<script src="./weblinkjs/pfcUtils.js">
-</script>
-<script src="./weblinkjs/index.js">
-</script>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Creo二次开发工具</title>
+        <link rel="stylesheet" type="text/css" href="./weblinkcss/style.css">
+        <link rel="stylesheet" type="text/css" href="./weblinkcss/highlight.css">
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?767e3ea52a6b4f3c656cdd4119c87e62";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    </head>
+    <script src="./weblinkjs/pfcUtils.js">
+    </script>
+    <script src="./weblinkjs/index.js">
+    </script>
 
-<body onload="init();">
-    <div class="body_container">
-        <div id="header">
-            <div class="site-name">
-                <a id="logo" href=".">Creo二次开发工具</a>
-                <p class="description">本页功能必须在Creo内置窗口打开才能使用。仅在win10 X64，Creo 2.0 M060 X64环境测试通过。</p>
+
+    <body onload="init();">
+        <div class="body_container">
+            <div id="header">
+                <div class="site-name">
+                    <a id="logo" href=".">Creo二次开发工具</a>
+                    <p class="description">本页功能必须在Creo内置窗口打开才能使用。仅在win10 X64，Creo 2.0 M060 X64环境测试通过。</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="PartsParams.html">批量参数操作</a>
-            </h2>
-            <div class="post-content">
-                <p>对工作目录下的prt批量添加、修改、删除参数。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="PartsParams.html">批量参数操作</a>
+                </h2>
+                <div class="post-content">
+                    <p>对工作目录下的prt批量添加、修改、删除参数。</p>
+                </div>
+                <p class="readmore">
+                    <a href="PartsParams.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="PartsParams.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="PartsRelations.html">批量关系操作</a>
-            </h2>
-            <div class="post-content">
-                <p>对工作目录下的prt批量添加、修改、删除关系。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="PartsRelations.html">批量关系操作</a>
+                </h2>
+                <div class="post-content">
+                    <p>对工作目录下的prt批量添加、修改、删除关系。</p>
+                </div>
+                <p class="readmore">
+                    <a href="PartsRelations.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="PartsRelations.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="Converts.html">批量导出文件</a>
-            </h2>
-            <div class="post-content">
-                <p>将工作目录下的文件批量导出为PDF、Iges等。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="Converts.html">批量导出文件</a>
+                </h2>
+                <div class="post-content">
+                    <p>将工作目录下的文件批量导出为PDF、Iges等。</p>
+                </div>
+                <p class="readmore">
+                    <a href="Converts.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="Converts.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="Layers.html">自动设置图层</a>
-            </h2>
-            <div class="post-content">
-                <p>将在绘图中添加名为TABLE、NOTE、SYMBOL和DIMENSION四个层，每个层添加对应的元素。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="Layers.html">自动设置图层</a>
+                </h2>
+                <div class="post-content">
+                    <p>将在绘图中添加名为TABLE、NOTE、SYMBOL和DIMENSION四个层，每个层添加对应的元素。</p>
+                </div>
+                <p class="readmore">
+                    <a href="Layers.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="Layers.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="dimension.html">个性化标注</a>
-            </h2>
-            <div class="post-content">
-                <p>添加一些个性化标注，简化标注流程。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="dimension.html">个性化标注</a>
+                </h2>
+                <div class="post-content">
+                    <p>添加一些个性化标注，简化标注流程。</p>
+                </div>
+                <p class="readmore">
+                    <a href="dimension.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="dimension.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="Balloon.html">球标操作</a>
-            </h2>
-            <div class="post-content">
-                <p>国标球标、球标对齐等操作。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="Balloon.html">球标操作</a>
+                </h2>
+                <div class="post-content">
+                    <p>国标球标、球标对齐等操作。</p>
+                </div>
+                <p class="readmore">
+                    <a href="Balloon.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="Balloon.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="EngineeringDrawing.html">同名工程图</a>
-            </h2>
-            <div class="post-content">
-                <p>一键新建同名工程图，如果存在则打开同名工程图。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="EngineeringDrawing.html">同名工程图</a>
+                </h2>
+                <div class="post-content">
+                    <p>一键新建同名工程图，如果存在则打开同名工程图。</p>
+                </div>
+                <p class="readmore">
+                    <a href="EngineeringDrawing.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="EngineeringDrawing.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="Familyexport.html">族表文件导出</a>
-            </h2>
-            <div class="post-content">
-                <p>一键将族表文件批量保存成单独实例文件，打开类属模型进行操作。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="Familyexport.html">族表文件导出</a>
+                </h2>
+                <div class="post-content">
+                    <p>一键将族表文件批量保存成单独实例文件，打开类属模型进行操作。</p>
+                </div>
+                <p class="readmore">
+                    <a href="Familyexport.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="Familyexport.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="Massopen.html">批量打开本地文件</a>
-            </h2>
-            <div class="post-content">
-                <p>批量打开工作目录下prt、asm以及drw文件，可以选择需要打开的文件。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="Massopen.html">批量打开本地文件</a>
+                </h2>
+                <div class="post-content">
+                    <p>批量打开工作目录下prt、asm以及drw文件，可以选择需要打开的文件。</p>
+                </div>
+                <p class="readmore">
+                    <a href="Massopen.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="Massopen.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="recentDir.html">常用目录</a>
-            </h2>
-            <div class="post-content">
-                <p>将最近使用的目录记录在此，在列表中一键切换工作目录。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="recentDir.html">常用目录</a>
+                </h2>
+                <div class="post-content">
+                    <p>将最近使用的目录记录在此，在列表中一键切换工作目录。</p>
+                </div>
+                <p class="readmore">
+                    <a href="recentDir.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="recentDir.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="frmReplace.html">批量替换图框</a>
-            </h2>
-            <div class="post-content">
-                <p>查看工作目录下所有drw的图框，同时提供替换选定文件夹下的图框功能。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="frmReplace.html">批量替换图框</a>
+                </h2>
+                <div class="post-content">
+                    <p>查看工作目录下所有drw的图框，同时提供替换选定文件夹下的图框功能。</p>
+                </div>
+                <p class="readmore">
+                    <a href="frmReplace.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="frmReplace.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="UnitConfig.html">批量修改单位</a>
-            </h2>
-            <div class="post-content">
-                <p>查看工作目录下所有prt的单位，同时提供批量替换单位为mmNs功能。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="UnitConfig.html">批量修改单位</a>
+                </h2>
+                <div class="post-content">
+                    <p>查看工作目录下所有prt的单位，同时提供批量替换单位为mmNs功能。</p>
+                </div>
+                <p class="readmore">
+                    <a href="UnitConfig.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="UnitConfig.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="MaterialSet.html">批量修改材料</a>
-            </h2>
-            <div class="post-content">
-                <p>批量修改工作目录下所有prt的材料。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="MaterialSet.html">批量修改材料</a>
+                </h2>
+                <div class="post-content">
+                    <p>批量修改工作目录下所有prt的材料。</p>
+                </div>
+                <p class="readmore">
+                    <a href="MaterialSet.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="MaterialSet.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="HydralDict.html">常用液压词典</a>
-            </h2>
-            <div class="post-content">
-                <p>查看常用液压中英文词汇</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="HydralDict.html">常用液压词典</a>
+                </h2>
+                <div class="post-content">
+                    <p>查看常用液压中英文词汇</p>
+                </div>
+                <p class="readmore">
+                    <a href="HydralDict.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="HydralDict.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
 
-    <!-- <div class="content_container">
+        <!-- <div class="content_container">
         <div class="post">
             <h2 class="post-title">
                 <a href="Creoview.html">快速预览</a>
@@ -233,31 +243,31 @@
         </div>
     </div> -->
 
-    <div class="content_container">
-        <div class="post">
-            <h2 class="post-title">
-                <a href="help.html">帮助说明</a>
-            </h2>
-            <div class="post-content">
-                <p>Weblink配置请看这里。</p>
+        <div class="content_container">
+            <div class="post">
+                <h2 class="post-title">
+                    <a href="help.html">帮助说明</a>
+                </h2>
+                <div class="post-content">
+                    <p>Weblink配置请看这里。</p>
+                </div>
+                <p class="readmore">
+                    <a href="help.html">开始使用</a>
+                </p>
             </div>
-            <p class="readmore">
-                <a href="help.html">开始使用</a>
-            </p>
         </div>
-    </div>
 
-    
-    <div id="footer">
-        <div class="footer-info">
-            <p>本工具由胡迪开发</p>
-            <p>欢迎访问我的博客：<a target="_blank" href="http://www.hudi.site">http://www.hudi.site</a></p>
 
-            <p> Theme by
-                <a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake</a>
-            </p>
+        <div id="footer">
+            <div class="footer-info">
+                <p>本工具由胡迪开发</p>
+                <p>欢迎访问我的博客：<a target="_blank" href="http://www.hudi.site">http://www.hudi.site</a></p>
+
+                <p> Theme by
+                    <a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake</a>
+                </p>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 
 </html>

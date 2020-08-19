@@ -1,66 +1,77 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>族表文件导出</title>
-    <link rel="stylesheet" type="text/css" href="./weblinkcss/style.css">
-    <link rel="stylesheet" type="text/css" href="./weblinkcss/highlight.css">
-</head>
-<script src="./weblinkjs/pfcUtils.js">
-</script>
-<script src="./weblinkjs/Familyexport.js">
-</script>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>族表文件导出</title>
+        <link rel="stylesheet" type="text/css" href="./weblinkcss/style.css">
+        <link rel="stylesheet" type="text/css" href="./weblinkcss/highlight.css">
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?767e3ea52a6b4f3c656cdd4119c87e62";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    </head>
+    <script src="./weblinkjs/pfcUtils.js">
+    </script>
+    <script src="./weblinkjs/Familyexport.js">
+    </script>
 
-<body vlink="purple" onload="init();">
 
-    <div class="body_container">
-        <div id="header">
-            <div class="site-name">
-                <a id="logo" href=".">Creo二次开发工具</a>
-                <p class="description">本页功能必须在Creo内置窗口打开才能使用。仅在win10 X64，Creo 2.0 M060 X64环境测试通过。</p>
+    <body vlink="purple" onload="init();">
+
+        <div class="body_container">
+            <div id="header">
+                <div class="site-name">
+                    <a id="logo" href=".">Creo二次开发工具</a>
+                    <p class="description">本页功能必须在Creo内置窗口打开才能使用。仅在win10 X64，Creo 2.0 M060 X64环境测试通过。</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="body_container">
-        <div class="post">
-            <h1 class="post-title">当前打开的模型为：</h1>
-            <br />
-            <h2 class="post-title" id="currentModel">--</h2>
-        </div>
-        <div class="post">
-            <h1 class="post-title" id="instancenumber">--</h1>
-            <br />
-            <button class="blue" style="float:right;width:200px" onclick="FamExport();">导出</button>
-            <br />
-            <br />
-            <table id="tableParams" cellspacing="10px">
-                <thead>
-                    <tr>
-                        <th>选择</th>
-                        <th>序号</th>
-                        <th>名称</th>
-                        <th>导出状态</th>
-                    </tr>
-                </thead>
-                <tbody id="famcontents">
-                </tbody>
-            </table>
-            <br />
-            <br />
-            <p>为防止导出失败，导出前最好关闭所有打开的其它模型以及保证导出目录下不要有同名文件。</p>
-        </div>
+        <div class="body_container">
+            <div class="post">
+                <h1 class="post-title">当前打开的模型为：</h1>
+                <br />
+                <h2 class="post-title" id="currentModel">--</h2>
+            </div>
+            <div class="post">
+                <h1 class="post-title" id="instancenumber">--</h1>
+                <br />
+                <button class="blue" style="float:right;width:200px" onclick="FamExport();">导出</button>
+                <br />
+                <br />
+                <table id="tableParams" cellspacing="10px">
+                    <thead>
+                        <tr>
+                            <th>选择</th>
+                            <th>序号</th>
+                            <th>名称</th>
+                            <th>导出状态</th>
+                        </tr>
+                    </thead>
+                    <tbody id="famcontents">
+                    </tbody>
+                </table>
+                <br />
+                <br />
+                <p>为防止导出失败，导出前最好关闭所有打开的其它模型以及保证导出目录下不要有同名文件。</p>
+            </div>
 
-        <div id="footer">
-            <div class="footer-info">
-                <p>本工具由胡迪开发</p>
-                <p>欢迎访问我的博客：<a target="_blank" href="http://www.hudi.site">http://www.hudi.site</a></p>
-                <p> Theme by
-                    <a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake</a>
-                </p>
+            <div id="footer">
+                <div class="footer-info">
+                    <p>本工具由胡迪开发</p>
+                    <p>欢迎访问我的博客：<a target="_blank" href="http://www.hudi.site">http://www.hudi.site</a></p>
+                    <p> Theme by
+                        <a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake">
+                            BlueLake</a>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 
 </html>

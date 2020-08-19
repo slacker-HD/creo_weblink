@@ -1,65 +1,75 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>球标操作</title>
-    <link rel="stylesheet" type="text/css" href="./weblinkcss/style.css">
-    <link rel="stylesheet" type="text/css" href="./weblinkcss/highlight.css">
-</head>
-<script src="./weblinkjs/pfcUtils.js">
-</script>
-<script src="./weblinkjs/Balloon.js">
-</script>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>球标操作</title>
+        <link rel="stylesheet" type="text/css" href="./weblinkcss/style.css">
+        <link rel="stylesheet" type="text/css" href="./weblinkcss/highlight.css">
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?767e3ea52a6b4f3c656cdd4119c87e62";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    </head>
+    <script src="./weblinkjs/pfcUtils.js">
+    </script>
+    <script src="./weblinkjs/Balloon.js">
+    </script>
 
-<body vlink="purple" onload="init()">
 
-    <div class="body_container">
-        <div id="header">
-            <div class="site-name">
-                <a id="logo" href=".">Creo二次开发工具</a>
-                <p class="description">本页功能必须在Creo内置窗口打开才能使用。仅在win10 X64，Creo 2.0 M060 X64环境测试通过。</p>
+    <body vlink="purple" onload="init()">
+
+        <div class="body_container">
+            <div id="header">
+                <div class="site-name">
+                    <a id="logo" href=".">Creo二次开发工具</a>
+                    <p class="description">本页功能必须在Creo内置窗口打开才能使用。仅在win10 X64，Creo 2.0 M060 X64环境测试通过。</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="body_container">
-        <div class="post">
-            <h1 class="post-title">当前打开的模型为：</h1>
-            <br />
-            <h2 class="post-title" id="currentModel">--</h2>
+        <div class="body_container">
+            <div class="post">
+                <h1 class="post-title">当前打开的模型为：</h1>
+                <br />
+                <h2 class="post-title" id="currentModel">--</h2>
+            </div>
+            <div class="post">
+                <h1 class="post-title">国标球标</h1>
+                <button class="blue" onclick="GBBalloon();" style="width:280px">替换球标为国标</button>
+                <br />
+                <br />
+                <p>点击将现有图纸中的球标替换为国标球标符号。请首先下载GBqiubiao.sym到Creo的用户符号目录下。操作时首先保证已先生成球标再点击本按钮。</p>
+                <a title="下载" mce_href="#" download="GBqiubiao.sym" href="./symbols/GBqiubiao.sym">国标球标符号（右键另存为下载）</a>
+                <br />
+                <br />
+                <button class="blue" onclick="HorizonArrange();" style="width:280px">水平对齐球标</button>
+                <br />
+                <br />
+                <p>首先在工程图中选择所有需要对齐的球标，之后点击本按钮，再在工程图中左键点击鼠标选择水平摆放坐标。必须在完成国标球标后功能方可用。</p>
+                <br />
+                <br />
+                <button class="blue" onclick="VerticalArrange();" style="width:280px">垂直对齐球标</button>
+                <br />
+                <br />
+                <p>首先在工程图中选择所有需要对齐的球标，之后点击本按钮，再在工程图中左键点击鼠标选择垂直摆放坐标。必须在完成国标球标后功能方可用。</p>
+                <br />
+            </div>
         </div>
-        <div class="post">
-            <h1 class="post-title">国标球标</h1>
-            <button class="blue" onclick="GBBalloon();" style="width:280px">替换球标为国标</button>
-            <br />
-            <br />
-            <p>点击将现有图纸中的球标替换为国标球标符号。请首先下载GBqiubiao.sym到Creo的用户符号目录下。操作时首先保证已先生成球标再点击本按钮。</p>
-            <a title="下载" mce_href="#" download="GBqiubiao.sym" href="./symbols/GBqiubiao.sym">国标球标符号（右键另存为下载）</a>
-            <br />
-            <br />
-            <button class="blue" onclick="HorizonArrange();" style="width:280px">水平对齐球标</button>
-            <br />
-            <br />
-            <p>首先在工程图中选择所有需要对齐的球标，之后点击本按钮，再在工程图中左键点击鼠标选择水平摆放坐标。必须在完成国标球标后功能方可用。</p>
-            <br />
-            <br />
-            <button class="blue" onclick="VerticalArrange();" style="width:280px">垂直对齐球标</button>
-            <br />
-            <br />
-            <p>首先在工程图中选择所有需要对齐的球标，之后点击本按钮，再在工程图中左键点击鼠标选择垂直摆放坐标。必须在完成国标球标后功能方可用。</p>
-            <br />
-        </div>
-    </div>
-    <div id="footer">
-        <div class="footer-info">
-            <p>本工具由胡迪开发</p>
-            <p>欢迎访问我的博客：<a target="_blank" href="http://www.hudi.site">http://www.hudi.site</a></p>
+        <div id="footer">
+            <div class="footer-info">
+                <p>本工具由胡迪开发</p>
+                <p>欢迎访问我的博客：<a target="_blank" href="http://www.hudi.site">http://www.hudi.site</a></p>
 
-            <p> Theme by
-                <a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake</a>
-            </p>
+                <p> Theme by
+                    <a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake</a>
+                </p>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 
 </html>
