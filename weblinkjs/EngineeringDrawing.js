@@ -3,7 +3,7 @@ function init() {
 }
 
 function GetCurrentModelName() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     if (session.CurrentModel == null)
@@ -12,14 +12,14 @@ function GetCurrentModelName() {
 }
 
 function CurrentModel() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     return session.CurrentModel;
 }
 
 function CreateDrawing() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
 
     var session = pfcGetProESession();
@@ -31,7 +31,7 @@ function CreateDrawing() {
 }
 
 function CODrawing() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var model = CurrentModel();
     if (model == null)

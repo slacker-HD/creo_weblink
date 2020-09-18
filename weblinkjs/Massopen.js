@@ -7,7 +7,7 @@ function init() {
 }
 
 function GetWorkDir() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     return session.GetCurrentDirectory();
@@ -29,7 +29,7 @@ function getrealFilename(filename, extension) {
 
 
 function AddListView(extension) {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     var files = session.ListFiles("*" + extension, pfcCreate("pfcFileListOpt").FILE_LIST_LATEST, GetWorkDir());
@@ -47,7 +47,7 @@ function AddListView(extension) {
 }
 
 function _MassOpen(extension) {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     try {
@@ -69,7 +69,7 @@ function _MassOpen(extension) {
 }
 
 function MassOpen() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     _MassOpen(".asm");
     _MassOpen(".prt");

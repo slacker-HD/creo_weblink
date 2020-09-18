@@ -3,7 +3,7 @@ function init() {
 }
 
 function GetCurrentModelName() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     if (session.CurrentModel == null)
@@ -12,7 +12,7 @@ function GetCurrentModelName() {
 }
 
 function CurrentModel() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     return session.CurrentModel;
@@ -20,7 +20,7 @@ function CurrentModel() {
 
 
 function HasTable() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var model = CurrentModel();
     if (model == null)
@@ -38,7 +38,7 @@ function HasTable() {
 }
 
 function TableIDwithBom() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var model = CurrentModel();
     if (HasTable()) {
@@ -69,7 +69,7 @@ function TableIDwithBom() {
 }
 
 function GBBalloon() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var model = CurrentModel();
     var session = pfcGetProESession();
@@ -88,7 +88,7 @@ function GBBalloon() {
 }
 
 function HorizonArrange() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var model = CurrentModel();
     if (model == null)
@@ -116,7 +116,7 @@ function HorizonArrange() {
 }
 
 function VerticalArrange() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var model = CurrentModel();
     if (model == null)

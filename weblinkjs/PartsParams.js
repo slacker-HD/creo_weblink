@@ -44,7 +44,7 @@ function FinishEditView(obj) {
 }
 
 function GetWorkDir() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     return session.GetCurrentDirectory();
@@ -64,7 +64,7 @@ function getrealFilename(filename) {
 }
 
 function DesignateParams() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     var files = session.ListFiles("*.prt", pfcCreate("pfcFileListOpt").FILE_LIST_LATEST, GetWorkDir());
@@ -90,7 +90,7 @@ function DesignateParams() {
 }
 
 function DelParams() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var hasRestrictionparam = false;
     var session = pfcGetProESession();
@@ -124,7 +124,7 @@ function DelParams() {
 
 
 function AddParams() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     var files = session.ListFiles("*.prt", pfcCreate("pfcFileListOpt").FILE_LIST_LATEST, GetWorkDir());

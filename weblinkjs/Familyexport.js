@@ -31,7 +31,7 @@ function AddFamcontentView(name) {
 }
 
 function GetCurrentModelName() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     if (session.CurrentModel == null)
@@ -51,14 +51,14 @@ function GetInstancesNumber() {
 }
 
 function CurrentModel() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     return session.CurrentModel;
 }
 
 function FamExport() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
 
     var model = CurrentModel();

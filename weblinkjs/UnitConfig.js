@@ -4,7 +4,7 @@ function init() {
 }
 
 function GetWorkDir() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     return session.GetCurrentDirectory();
@@ -23,7 +23,7 @@ function getrealFilename(filename, extension) {
 }
 
 function Unitinfo(file) {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     var mdlDescr = pfcCreate("pfcModelDescriptor").CreateFromFileName(getrealFilename(file, ".prt"));
@@ -36,7 +36,7 @@ function Unitinfo(file) {
 }
 
 function AddListView(extension) {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     var files = session.ListFiles("*" + extension, pfcCreate("pfcFileListOpt").FILE_LIST_LATEST, GetWorkDir());
@@ -65,7 +65,7 @@ function AddListView(extension) {
 }
 
 function SetommNsUnit(file, ConvertMethod) {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     var mdlDescr = pfcCreate("pfcModelDescriptor").CreateFromFileName(getrealFilename(file, ".prt"));
@@ -93,7 +93,7 @@ function SetommNsUnit(file, ConvertMethod) {
 }
 
 function UnitConfig() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var trs = document.getElementById(".prt").getElementsByTagName("tr");
     var session = pfcGetProESession();

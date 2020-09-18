@@ -3,7 +3,7 @@ function init() {
 }
 
 function GetWorkDir() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     return session.GetCurrentDirectory();
@@ -22,7 +22,7 @@ function getrealFilename(filename) {
 }
 
 function ExportSteps() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     var files = session.ListFiles("*.prt", pfcCreate("pfcFileListOpt").FILE_LIST_LATEST, GetWorkDir());
@@ -43,7 +43,7 @@ function ExportSteps() {
 }
 
 function ExportIgeses() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     var files = session.ListFiles("*.prt", pfcCreate("pfcFileListOpt").FILE_LIST_LATEST, GetWorkDir());
@@ -64,7 +64,7 @@ function ExportIgeses() {
 }
 
 function ExportPdfs() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     var files = session.ListFiles("*.drw", pfcCreate("pfcFileListOpt").FILE_LIST_LATEST, GetWorkDir());
@@ -88,7 +88,7 @@ function ExportPdfs() {
 
 
 function ExportDwgs() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     var files = session.ListFiles("*.drw", pfcCreate("pfcFileListOpt").FILE_LIST_LATEST, GetWorkDir());

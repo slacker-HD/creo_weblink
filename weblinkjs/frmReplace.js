@@ -4,14 +4,14 @@ function init() {
 }
 
 function GetWorkDir() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     return session.GetCurrentDirectory();
 }
 
 function selectdrmdir() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     try {
@@ -56,7 +56,7 @@ function getrealFilename(filename, extension) {
 }
 
 function AddListView(extension) {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     var files = session.ListFiles("*" + extension, pfcCreate("pfcFileListOpt").FILE_LIST_LATEST, GetWorkDir());
@@ -83,7 +83,7 @@ function AddListView(extension) {
 }
 
 function Sheetsinfo(file) {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var ret = [];
 
@@ -108,7 +108,7 @@ function Sheetsinfo(file) {
 
 
 function getfrms(Directory) {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var frms = [];
     var session = pfcGetProESession();
@@ -120,7 +120,7 @@ function getfrms(Directory) {
 }
 
 function MassReplace() {
-    if (!pfcIsWindows())
+    if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var trs = document.getElementById(".drw").getElementsByTagName("tr");
     var session = pfcGetProESession();
