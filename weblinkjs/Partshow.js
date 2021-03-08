@@ -30,9 +30,9 @@ function HideUnSelected() {
 
 function Restore() {
     var session = pfcGetProESession();
-    var Model = CurrentModel();
-    var MasterRep = Model.GetActiveSimpRep();
     try {
+        var Model = CurrentModel();
+        var MasterRep = Model.GetActiveSimpRep();
         Model.DeleteSimpRep(MasterRep);
     } catch (error) {
     }
