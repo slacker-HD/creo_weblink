@@ -136,7 +136,8 @@ function MassReplace() {
             if (drw == null) {
                 drw = session.RetrieveModel(drwDescr);
             }
-
+            var currentdir = GetWorkDir();
+            session.ChangeDirectory(document.getElementById("frmdirectory").innerHTML);
             var frmDescr = pfcCreate("pfcModelDescriptor").CreateFromFileName(getrealFilename(textsel, ".frm"));
             var frm = session.GetModelFromDescr(frmDescr);
             if (frm == null) {
@@ -145,6 +146,7 @@ function MassReplace() {
 
             drw.SetSheetFormat(trs[i].getAttribute("sheetnumber"), frm, 0, null);
             drw.Save();
+            session.ChangeDirectory(currentdir);
         }
     }
     session.EraseUndisplayedModels();
