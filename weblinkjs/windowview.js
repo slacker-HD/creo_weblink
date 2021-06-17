@@ -13,7 +13,8 @@ function GetCurrentModelName() {
     return session.CurrentModel.FileName;
 }
 
-function ModelRotate() {
+
+function ModelRotate(RotateAxis) {
     var modeltype = pfcCreate("pfcModelType");
     var session = pfcGetProESession();
     var model = session.CurrentModel;
@@ -26,11 +27,23 @@ function ModelRotate() {
         var currentwindow = session.CurrentWindow;
         var axis = pfcCreate("pfcCoordAxis");
         Timer = setInterval(function () {
-            model.GetCurrentView().rotate(axis.COORD_AXIS_Y, -3);
+            model.GetCurrentView().rotate(RotateAxis, -3);
             currentwindow.Repaint();
         }, 100);
     } else {
         clearInterval(Timer);
         Timer = null;
     }
+}
+
+function RotateX() {
+    ModelRotate(axis.COORD_AXIS_X);
+}
+
+function RotateY() {
+    ModelRotate(axis.COORD_AXIS_Y);
+}
+
+function RotateZ() {
+    ModelRotate(axis.COORD_AXIS_Z);
 }
