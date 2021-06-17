@@ -25,7 +25,6 @@ function ModelRotate(RotateAxis) {
     }
     if (Timer == null) {
         var currentwindow = session.CurrentWindow;
-        var axis = pfcCreate("pfcCoordAxis");
         Timer = setInterval(function () {
             model.GetCurrentView().rotate(RotateAxis, -3);
             currentwindow.Repaint();
@@ -37,13 +36,16 @@ function ModelRotate(RotateAxis) {
 }
 
 function RotateX() {
+    var axis = pfcCreate("pfcCoordAxis");
     ModelRotate(axis.COORD_AXIS_X);
 }
 
 function RotateY() {
+    var axis = pfcCreate("pfcCoordAxis");
     ModelRotate(axis.COORD_AXIS_Y);
 }
 
 function RotateZ() {
+    var axis = pfcCreate("pfcCoordAxis");
     ModelRotate(axis.COORD_AXIS_Z);
 }
