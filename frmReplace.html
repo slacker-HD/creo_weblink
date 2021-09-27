@@ -54,7 +54,11 @@
             </div>
 
             <div class="post">
-                <button class="blue" style="float:right;width:200px" onclick="MassReplace();">全部替换</button>
+                <div style="float:right;width:200px">
+                    <input id="deltab" type="checkbox" checked>删除內建表格</input>
+                    <button class="blue" onclick="MassReplace();">全部替换</button>
+                </div>
+
                 <h1 class="post-title">工作目录下所有绘图文件：</h1>
                 <br />
                 <table cellspacing="10px">

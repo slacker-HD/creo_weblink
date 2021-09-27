@@ -1,3 +1,10 @@
+
+
+// boolean	CheckIfIsFromFormat	(number SheetNumber)
+
+// Identifies if the drawing table was created by the format.
+
+
 function init() {
     document.getElementById("directory").innerHTML = GetWorkDir();
     AddListView(".drw");
@@ -119,6 +126,20 @@ function getfrms(Directory) {
     return frms;
 }
 
+function DeleteInnerTable(drawing, sheetnumber) {
+    var tables = drawing.ListTables();
+    if (tables == null) {
+        return;
+    }
+    for (var i = 0; i < tables.Count; i++) {
+        var table = tables.Item(i);
+        if (table.CheckIfIsFromFormat(sheetnumber) === true) {
+            table.Erase();
+        }
+    }
+}
+
+
 function MassReplace() {
     if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
@@ -145,6 +166,11 @@ function MassReplace() {
             }
 
             drw.SetSheetFormat(trs[i].getAttribute("sheetnumber"), frm, 0, null);
+
+            if (document.getElementById("deltab").checked === true) {
+                DeleteInnerTable(drw,sheetnumber);
+            }
+
             drw.Save();
             session.ChangeDirectory(currentdir);
         }
