@@ -82,7 +82,7 @@ function AddListView(extension) {
             }
             Cell_1.innerHTML = getrealFilename(files.Item(i), extension);
             var Cell_2 = tableRow.insertCell(2);
-            Cell_2.innerHTML = "第" + (j + 1) + "个" + "sheet";
+            Cell_2.innerHTML = j + 1;
             var Cell_3 = tableRow.insertCell(3);
             Cell_3.innerHTML = "<select style='width:200px'><option value= '" + j + "'>" + sheets[j] + "</option></seletct>";
         }
@@ -133,8 +133,8 @@ function DeleteInnerTable(drawing, sheetnumber) {
     }
     for (var i = 0; i < tables.Count; i++) {
         var table = tables.Item(i);
-        if (table.CheckIfIsFromFormat(sheetnumber) === true) {
-            table.Erase();
+        if (table.CheckIfIsFromFormat(sheetnumber) == true) {
+            drawing.DeleteTable(table,false);
         }
     }
 }
@@ -165,12 +165,11 @@ function MassReplace() {
                 frm = session.RetrieveModel(frmDescr);
             }
 
-            drw.SetSheetFormat(trs[i].getAttribute("sheetnumber"), frm, 0, null);
 
-            if (document.getElementById("deltab").checked === true) {
-                DeleteInnerTable(drw,sheetnumber);
+            if (document.getElementById("deltab").checked == true) {
+                DeleteInnerTable(drw, trs[i].getAttribute("sheetnumber"));
             }
-
+            drw.SetSheetFormat(trs[i].getAttribute("sheetnumber"), frm, 0, null);
             drw.Save();
             session.ChangeDirectory(currentdir);
         }
