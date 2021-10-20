@@ -19,7 +19,7 @@
     <script src="./weblinkjs/pfcUtils.js"> </script>
     <script src="./weblinkjs/jquery.min.js"> </script>
     <script src="./weblinkjs/qrcode.min.js"> </script>
-    <script src="./weblinkjs/QrCodeGen.js"> </script>
+    <script src="./weblinkjs/QRCodeGen.js"> </script>
 
     <body vlink="purple" onload="init()">
 
@@ -39,17 +39,26 @@
             </div>
 
             <div class="post">
-                <h1 class="post-title">添加二维码</h1>
-                <div>
-                    <table id="qrcode">
-                    </table>
-                </div>
-                <button class="blue" onclick="makeCode();" style="width:280px">生成二维码</button>
+                <h1 class="post-title">在此输入文字以生成二维码：</h1>
+                <br />
+                <table style="width:100%">
+                    <tr>
+                        <td style="width :100%">
+                            <textarea id="qrcodetext" class="comments" rows="15" cols="10"></textarea>
+                        </td>
+                        <td>
+                            <div id="qrcode" style="width:258px">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <button class="blue" style="width:280px" onclick="GenQRCode();">生成二维码</button>
+                <span></span>
+                <button class="blue" style="width:280px" onclick="InsertQRCode();">插入二维码到绘图</button>
                 <br />
                 <br />
-                <button class="blue" onclick="makeCode();" style="width:280px">插入绘图</button>
-                <p>根据输入的文字生成二维码并插入绘图中。
-                </p>
+                <p>根据输入的文字生成二维码并插入绘图中。</p>
             </div>
         </div>
         <div id="footer">
