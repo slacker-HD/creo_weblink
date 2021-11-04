@@ -43,7 +43,8 @@ function GenQRCode() {
 
 
 function InsertQRCode() {
-    placeSymInst();
+    // placeSymInst();
+    lineEntityCreate();
 }
 
 
@@ -115,11 +116,8 @@ function placeSymInst() {
 
     var detailSymbolDefInstructions = pfcCreate("pfcDetailSymbolDefInstructions").Create("IMI_QRCODE");
     detailSymbolDefInstructions.HasElbow = false;
-    var data = qrcode._oQRCode.modules;
-    for (var i = 0; i < data.length; i++) {
-        for (var j = 0; j < data[i].length; j++) {
-            
-        }
-    }
-    drawing.CreateDetailItem(detailSymbolDefInstructions);
+
+    var detailItem = drawing.CreateDetailItem(detailSymbolDefInstructions);
+    // pfcDetailSymbolDefItem.
+    // pfcDetailItem	CreateDetailItem (pfcDetailCreateInstructions Instructions)
 }
