@@ -134,7 +134,7 @@ function DeleteInnerTable(drawing, sheetnumber) {
     for (var i = 0; i < tables.Count; i++) {
         var table = tables.Item(i);
         if (table.CheckIfIsFromFormat(sheetnumber) == true) {
-            drawing.DeleteTable(table,false);
+            drawing.DeleteTable(table, false);
         }
     }
 }

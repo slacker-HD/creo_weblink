@@ -25,4 +25,4 @@ function callback() {
             document.getElementById("word").innerHTML = xmlHttp.responseText;
         }
     }
-} 
+}

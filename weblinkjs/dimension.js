@@ -226,7 +226,7 @@ function Dims2Csv() {
     w.document.write(text);
     try {
         w.document.charset = "GB2312";
-    } catch (err) {}
+    } catch (err) { }
     w.document.execCommand("SaveAs", false, model.FullName + ".csv");
     w.close();
 }
@@ -239,7 +239,7 @@ function dataToTxt(exportData) {
     w.document.write(exportData);
     try {
         w.document.charset = "GB2312";
-    } catch (err) {}
+    } catch (err) { }
     w.document.execCommand("SaveAs", false, dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate() + "-" + dt.getTime() + ".txt");
     w.close();
 }

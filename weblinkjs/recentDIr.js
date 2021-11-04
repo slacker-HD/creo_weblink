@@ -27,17 +27,17 @@ function initlist() {
             newCell1.innerHTML = dirs[i];
             newCell2.innerHTML = "<a href='#' onclick='DelDir(this.parentNode.parentNode.cells[1].innerHTML)'>删除</a>";
         }
-        Array.prototype.forEach.call(dirlist.getElementsByTagName('tr'), function(tr) {
+        Array.prototype.forEach.call(dirlist.getElementsByTagName('tr'), function (tr) {
             var sbgc = "";
-            tr.addEventListener('mouseover', function(event) {
+            tr.addEventListener('mouseover', function (event) {
                 sbgc = tr.style.backgroundColor;
                 tr.style.backgroundColor = "rgb(216,226,235)";
                 tr.style.cursor = "pointer";
             });
-            tr.addEventListener('mouseout', function(event) {
+            tr.addEventListener('mouseout', function (event) {
                 tr.style.backgroundColor = sbgc;
             });
-            tr.addEventListener('dblclick', function(event) {
+            tr.addEventListener('dblclick', function (event) {
                 session.ChangeDirectory(tr.cells[1].innerHTML);
                 document.getElementById("directory").innerHTML = tr.cells[1].innerHTML;
             });

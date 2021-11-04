@@ -8,115 +8,101 @@
 20-Nov-14   P-20-63   $$5 rkumbhare  Updated for chromium browser function.
  */
 
-function isProEEmbeddedBrowser ()
-{
+function isProEEmbeddedBrowser() {
   if (top.external && top.external.ptc)
     return true;
   else
     return false;
 }
 
-function pfcIsMozilla ()
-{
-    if(pfcIsWindows())
-		return false;	
-    if(pfcIsChrome())
-		return false; 
-	
-    return true;
+function pfcIsMozilla() {
+  if (pfcIsWindows())
+    return false;
+  if (pfcIsChrome())
+    return false;
+
+  return true;
 }
- 
-function pfcIsChrome ()
-{
+
+function pfcIsChrome() {
   var ua = navigator.userAgent.toString().toLowerCase();
   var val = ua.indexOf("chrome/"); // Chrome
-  if (val > -1)
-  {
+  if (val > -1) {
     return true;
   }
   else
     return false;
 }
 
-function pfcIsWindows ()
-{
+function pfcIsWindows() {
   if (navigator.userAgent.toString().toLowerCase().indexOf("trident") != -1)
     return true;
   else
     return false;
 }
 
-function pfcCreate (className)
-{
+function pfcCreate(className) {
   if (pfcIsWindows())
-    return new ActiveXObject ("pfc."+className);
-  else if (pfcIsChrome()) 
-    return pfcCefCreate (className);
-  else if (pfcIsMozilla())
-  {	
+    return new ActiveXObject("pfc." + className);
+  else if (pfcIsChrome())
+    return pfcCefCreate(className);
+  else if (pfcIsMozilla()) {
     netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-    ret = Components.classes ["@ptc.com/pfc/" + className + ";1"].createInstance();
+    ret = Components.classes["@ptc.com/pfc/" + className + ";1"].createInstance();
     return ret;
   }
 }
 
-function pfcGetProESession ()
-{
-  if (!isProEEmbeddedBrowser ())
-    {
-      throw new Error ("Not in embedded browser.  Aborting...");
-    }
-  
+function pfcGetProESession() {
+  if (!isProEEmbeddedBrowser()) {
+    throw new Error("Not in embedded browser.  Aborting...");
+  }
+
   // Security code
   if (pfcIsMozilla())
     netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-  
-  var glob = pfcCreate ("MpfcCOMGlobal");
+
+  var glob = pfcCreate("MpfcCOMGlobal");
   return glob.GetProESession();
 }
 
-function pfcGetScript ()
-{  
-  if (!isProEEmbeddedBrowser ())
-    {
-      throw new Error ("Not in embedded browser.  Aborting...");
-    }
-  
+function pfcGetScript() {
+  if (!isProEEmbeddedBrowser()) {
+    throw new Error("Not in embedded browser.  Aborting...");
+  }
+
   // Security code
   if (pfcIsMozilla())
     netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-  
-  var glob = pfcCreate ("MpfcCOMGlobal");
+
+  var glob = pfcCreate("MpfcCOMGlobal");
   return glob.GetScript();
 }
 
 
-function pfcGetExceptionDescription (err)
-{
- if (pfcIsWindows())
+function pfcGetExceptionDescription(err) {
+  if (pfcIsWindows())
     errString = err.description;
- else if (pfcIsChrome())
+  else if (pfcIsChrome())
     errString = window.pfcCefGetLastException().message;
- else if (pfcIsMozilla())
+  else if (pfcIsMozilla())
     errString = err.message;
- return errString;
+  return errString;
 }
 
-function pfcGetExceptionType (err)
-{
-  errString = pfcGetExceptionDescription (err);
+function pfcGetExceptionType(err) {
+  errString = pfcGetExceptionDescription(err);
 
   // This should remove the XPCOM prefix ("XPCR_C")
-  if (errString.search ("XPCR_C") < 0)
-  {
-	errString = errString.replace ("Exceptions::", "");
-	semicolonIndex = errString.search (";");
-	if (semicolonIndex > 0)
-		errString = errString.substring (0, semicolonIndex);
-	return (errString);
+  if (errString.search("XPCR_C") < 0) {
+    errString = errString.replace("Exceptions::", "");
+    semicolonIndex = errString.search(";");
+    if (semicolonIndex > 0)
+      errString = errString.substring(0, semicolonIndex);
+    return (errString);
   }
   else
-      return (errString.replace("XPCR_C", ""));
+    return (errString.replace("XPCR_C", ""));
 }
 
-      
+

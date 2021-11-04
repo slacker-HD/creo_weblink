@@ -79,7 +79,7 @@ function DesignateParams() {
             var Parameter = parameters.Item(j);
             try {
                 Parameter.IsDesignated = true;
-            } catch (err) {}
+            } catch (err) { }
         }
         mdl.Save();
     }
