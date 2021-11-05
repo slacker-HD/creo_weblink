@@ -138,6 +138,8 @@ function placeQRCode() {
 
     var session = pfcGetProESession();
     var drawing = session.CurrentModel;
+    if (model == null)
+        return;
     if (drawing.Type != pfcCreate("pfcModelType").MDL_DRAWING)
         return;
 
