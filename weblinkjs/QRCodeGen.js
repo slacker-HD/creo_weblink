@@ -2,6 +2,8 @@ var SYMQRCODENAME = "IMI_QRCODE";
 var SYMBARCODENAME = "IMI_BARCODE";
 
 var DOTWIDTH = 1.0;
+var LINEWIDTH = 0.2;
+
 function init() {
     document.getElementById("currentModel").innerHTML = GetCurrentModelName();
 }
@@ -86,18 +88,12 @@ function placeSymInst(symDef) {
     symInst.Show();
 }
 
-function DrawQRCode(QRCodedetailItem) {
+function DrawQRCode(QRCodedetailItem, data) {
     if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
 
     var session = pfcGetProESession();
     var color = pfcCreate("pfcStdColor").COLOR_QUILT;
-
-    document.getElementById("qrcode").innerHTML = "";
-    var qrcode = new QRCode(document.getElementById("qrcode"));
-    qrcode.clear();
-    qrcode.makeCode(document.getElementById("qrcodetext").value);
-    var data = qrcode._oQRCode.modules;
 
     var currentPosX = DOTWIDTH / 2;
     var currentPosY = data.length * DOTWIDTH;
@@ -130,14 +126,33 @@ function DrawQRCode(QRCodedetailItem) {
     }
 }
 
-function DrawBASRCode(QRCodedetailItem,data) {
+function DrawBASRCode(BARCodedetailItem, data) {
     if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-
     var session = pfcGetProESession();
     var color = pfcCreate("pfcStdColor").COLOR_QUILT;
-    
+    var currentPosX = LINEWIDTH / 2;
+    for (var i = 0; i < data.length; i++) {
+        if (data.charAt(i) === "1") {
+            var start = pfcCreate("pfcPoint3D");
+            start.Set(0, currentPosX);
+            start.Set(1, 0.0);
+            start.Set(2, 0.0);
 
+            var end = pfcCreate("pfcPoint3D");
+            end.Set(0, currentPosX);
+            end.Set(1, 10.0);
+            end.Set(2, 0.0);
+
+            var geom = pfcCreate("pfcLineDescriptor").Create(start, end);
+            var instrs = pfcCreate("pfcDetailEntityInstructions").Create(geom, null);
+            instrs.width = LINEWIDTH;
+            var rgb = session.GetRGBFromStdColor(color);
+            instrs.Color = rgb;
+            BARCodedetailItem.CreateDetailItem(instrs);
+        }
+        currentPosX += LINEWIDTH;
+    }
 }
 
 function InsertQRCode() {
@@ -151,11 +166,18 @@ function InsertQRCode() {
     if (drawing.Type != pfcCreate("pfcModelType").MDL_DRAWING)
         return;
 
+
+    document.getElementById("qrcode").innerHTML = "";
+    var qrcode = new QRCode(document.getElementById("qrcode"));
+    qrcode.clear();
+    qrcode.makeCode(document.getElementById("qrcodetext").value);
+    var data = qrcode._oQRCode.modules;
+
     CleanSymDef(SYMQRCODENAME);
     var QRCodedetailItem;
     var detailSymbolDefInstructions = pfcCreate("pfcDetailSymbolDefInstructions").Create(SYMQRCODENAME);
     QRCodedetailItem = drawing.CreateDetailItem(detailSymbolDefInstructions);
-    DrawQRCode(QRCodedetailItem);
+    DrawQRCode(QRCodedetailItem, data);
     placeSymInst(QRCodedetailItem);
     drawing.Regenerate();
     RefershCurrentWindow();
@@ -178,13 +200,12 @@ function InsertBARCode() {
         displayValue: true,
         valid: function (valid) {
             if (valid == true) {
-                const data = {};
+                var data = {};
                 JsBarcode(data, document.getElementById("barcodetext").value);
-                // alert(data.encodings[0].data);
                 CleanSymDef(SYMBARCODENAME);
                 var BARCodedetailItem;
                 var detailSymbolDefInstructions = pfcCreate("pfcDetailSymbolDefInstructions").Create(SYMBARCODENAME);
-                QRCodedetailItem = drawing.CreateDetailItem(detailSymbolDefInstructions);
+                BARCodedetailItem = drawing.CreateDetailItem(detailSymbolDefInstructions);
                 DrawBASRCode(BARCodedetailItem, data.encodings[0].data);
                 placeSymInst(BARCodedetailItem);
                 drawing.Regenerate();
