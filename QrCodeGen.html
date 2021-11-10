@@ -20,6 +20,7 @@
     <script src="./weblinkjs/jquery.min.js"> </script>
     <script src="./weblinkjs/qrcode.min.js"> </script>
     <script src="./weblinkjs/QRCodeGen.js"> </script>
+    <script src="./weblinkjs/JsBarcode.all.min.js"> </script>
 
     <body vlink="purple" onload="init()">
 
@@ -56,7 +57,26 @@
                 <button class="blue" style="width:280px" onclick="InsertQRCode();">左键单击绘图位置插入二维码</button>
                 <br />
                 <br />
-                <p>根据输入的文字生成二维码并插入绘图中。</p>
+
+                <h1 class="post-title">在此输入文字以生成条形码：</h1>
+                <br />
+                <table style="width:100%">
+                    <tr>
+                        <td style="width :100%">
+                            <textarea id="barcodetext" class="comments" rows="9" cols="10"></textarea>
+                        </td>
+                        <td>
+                            <svg id="barcode" style="width:258px">
+                            </s>
+                        </td>
+                    </tr>
+                </table>
+
+                <button class="blue" style="width:280px" onclick="InsertBARCode();">左键单击绘图位置插入条形码</button>
+                <br />
+                <br />
+
+                <p>根据输入的文字生成二维码或条形码并插入绘图中，注意条形码只支持数字和字母，不支持符号。</p>
             </div>
         </div>
         <div id="footer">

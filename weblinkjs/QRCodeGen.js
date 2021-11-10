@@ -1,4 +1,6 @@
-var SYMNAME = "IMI_QRCODE";
+var SYMQRCODENAME = "IMI_QRCODE";
+var SYMBARCODENAME = "IMI_BARCODE";
+
 var DOTWIDTH = 1.0;
 function init() {
     document.getElementById("currentModel").innerHTML = GetCurrentModelName();
@@ -27,10 +29,6 @@ function CurrentModel() {
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     return session.CurrentModel;
-}
-
-function InsertQRCode() {
-    placeQRCode();
 }
 
 function CleanSymDef(SymName) {
@@ -132,7 +130,17 @@ function DrawQRCode(QRCodedetailItem) {
     }
 }
 
-function placeQRCode() {
+function DrawBASRCode(QRCodedetailItem,data) {
+    if (pfcIsMozilla())
+        netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+
+    var session = pfcGetProESession();
+    var color = pfcCreate("pfcStdColor").COLOR_QUILT;
+    
+
+}
+
+function InsertQRCode() {
     if (pfcIsMozilla())
         netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
 
@@ -143,12 +151,48 @@ function placeQRCode() {
     if (drawing.Type != pfcCreate("pfcModelType").MDL_DRAWING)
         return;
 
-    CleanSymDef(SYMNAME);
+    CleanSymDef(SYMQRCODENAME);
     var QRCodedetailItem;
-    var detailSymbolDefInstructions = pfcCreate("pfcDetailSymbolDefInstructions").Create(SYMNAME);
+    var detailSymbolDefInstructions = pfcCreate("pfcDetailSymbolDefInstructions").Create(SYMQRCODENAME);
     QRCodedetailItem = drawing.CreateDetailItem(detailSymbolDefInstructions);
     DrawQRCode(QRCodedetailItem);
     placeSymInst(QRCodedetailItem);
     drawing.Regenerate();
     RefershCurrentWindow();
+}
+
+function InsertBARCode() {
+    if (pfcIsMozilla())
+        netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+
+    var session = pfcGetProESession();
+    var drawing = session.CurrentModel;
+    if (drawing == null)
+        return;
+    if (drawing.Type != pfcCreate("pfcModelType").MDL_DRAWING)
+        return;
+
+    JsBarcode("#barcode", document.getElementById("barcodetext").value, {
+        width: 1,
+        height: 50,
+        displayValue: true,
+        valid: function (valid) {
+            if (valid == true) {
+                const data = {};
+                JsBarcode(data, document.getElementById("barcodetext").value);
+                // alert(data.encodings[0].data);
+                CleanSymDef(SYMBARCODENAME);
+                var BARCodedetailItem;
+                var detailSymbolDefInstructions = pfcCreate("pfcDetailSymbolDefInstructions").Create(SYMBARCODENAME);
+                QRCodedetailItem = drawing.CreateDetailItem(detailSymbolDefInstructions);
+                DrawBASRCode(BARCodedetailItem, data.encodings[0].data);
+                placeSymInst(BARCodedetailItem);
+                drawing.Regenerate();
+                RefershCurrentWindow();
+            }
+            else {
+                alert("条形码只支持数字和字母，不支持符号。");
+            }
+        }
+    });
 }
