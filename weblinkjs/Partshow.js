@@ -19,16 +19,22 @@ function CurrentModel() {
 }
 
 function HideSelected() {
+    if (pfcIsMozilla())
+        netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     session.RunMacro("~ Command `ProCmdViewExclude`");
 }
 
 function HideUnSelected() {
+    if (pfcIsMozilla())
+        netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     session.RunMacro("~ Command `ProCmdViewNormalMaster`");
 }
 
 function Restore() {
+    if (pfcIsMozilla())
+        netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
     var session = pfcGetProESession();
     try {
         var Model = CurrentModel();
