@@ -243,3 +243,58 @@ function dataToTxt(exportData) {
     w.document.execCommand("SaveAs", false, dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate() + "-" + dt.getTime() + ".txt");
     w.close();
 }
+
+
+
+//TODO used to debug, delete after debug
+function alertObj(obj) {
+    var str = "";
+    for (var item in obj) {
+        str += item + ":" + obj[item] + "\n";
+    }
+    alert(str);
+}
+
+
+function Notevisit() {
+    if (pfcIsMozilla())
+        netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+    var model = CurrentModel();
+    if (model == null)
+        return;
+    if (model.Type != pfcCreate("pfcModelType").MDL_DRAWING)
+        return;
+
+    var notes = model.ListItems(pfcCreate("pfcModelItemType").ITEM_DTL_NOTE);
+    for (var i = 0; i < notes.Count; i++) {
+        if (notes.Item(i).GetDetailType() === pfcCreate("pfcDetailType").DETAIL_NOTE) {
+            var item = notes.Item(i);
+            if (item.Type == pfcCreate("pfcModelItemType").ITEM_DTL_NOTE) {
+                if (item.GetDetailType() == pfcCreate("pfcDetailType").DETAIL_NOTE) {
+                    try {
+                        // Below codes show how to append text, youc can also use Remove or Set functions to modify Note Texts.
+                        var detailNoteInstructions = item.GetInstructions(true);
+                        // Modify the Text as your wish
+                        // detailNoteInstructions.TextLines.Append(...)
+                        // detailNoteInstructions.TextLines.Remove(...)
+                        // detailNoteInstructions.TextLines.Set(...)
+                        // detailNoteInstructions.TextLines.Clear()
+                        item.Modify(detailNoteInstructions);
+                    } catch (error) {
+                        // Below codes show how to visit the texts
+                        var content = "Got Error to modify note: "
+                        var detailNoteInstructions = item.GetInstructions(true);
+                        var textLines = detailNoteInstructions.TextLines;
+                        for (j = 0; j < textLines.Count; j++) {
+                            var texts = textLines.Item(j).Texts;
+                            for (var k = 0; k < texts.Count; k++) {
+                                content += texts.Item(k).Text;
+                            }
+                        }
+                        alert(content);
+                    }
+                }
+            }
+        }
+    }
+}
